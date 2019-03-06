@@ -11,9 +11,7 @@ source=(https://github.com/xmikos/cryptboot/archive/v$pkgver.tar.gz)
 
 package() {
   cd "$srcdir/$pkgname-$pkgver"
-  install -Dm755 cryptboot "$pkgdir/usr/bin/cryptboot"
-  install -Dm755 cryptboot-efikeys "$pkgdir/usr/bin/cryptboot-efikeys"
-  install -Dm644 cryptboot.conf "$pkgdir/etc/cryptboot.conf"
+  make DESTDIR="${pkgdir}/" install
 }
 
 # vim:set ts=2 sw=2 et:
